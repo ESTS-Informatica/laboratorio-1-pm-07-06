@@ -10,14 +10,16 @@ public class WordGuessingGame
     private String guessedWord;
     private int numberOfTries;
     private InputReader reader;
+    private WordGenerator wordGenerator;
     /**
      * Constructor for the word guessing game
      */
     public WordGuessingGame(){
-        hiddenWord = "abc";
-        guessedWord = "___";
         numberOfTries = 0;
         reader = new InputReader();
+        wordGenerator = new WordGenerator();
+        hiddenWord = wordGenerator.generateWord();
+        guessedWord = initializeGuessedWord(hiddenWord);
     }
     /**
      * Returns the word to be guessed.
@@ -82,4 +84,17 @@ public class WordGuessingGame
      * Shows the total of attempts at guessing the word in the console
      */
     private void showResult(){System.out.println("Total de tentativas: " + numberOfTries);}
+    /**
+     * Initialize the word guessed so far with the right number of spaces
+     * @param hiddenWord String the word to be guessed
+     * @return String the word guessed so far, empty, with the right number of spaces
+     */
+    private String initializeGuessedWord(String hiddenWord){
+        int numLetters = hiddenWord.length();
+        String emptyWord = "";
+        for(int i=0; i<numLetters; i++){
+            emptyWord += "_";
+        }
+        return emptyWord;
+    }
 }

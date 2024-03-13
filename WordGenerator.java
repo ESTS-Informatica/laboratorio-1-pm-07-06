@@ -10,6 +10,13 @@ public class WordGenerator
 {
     private ArrayList<String> words;
     /**
+     * Construtor for WordGenerator
+     */
+    public WordGenerator(){
+        words = new ArrayList<>();
+        fillArrayList();
+    }
+    /**
      * Adds the reserved java keywords to the list
      */
     private void fillArrayList(){
