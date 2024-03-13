@@ -1,6 +1,4 @@
- 
 import java.util.Scanner;
-
 /**
  * InputReader implementa a entrada de dados através do teclado.
  *
