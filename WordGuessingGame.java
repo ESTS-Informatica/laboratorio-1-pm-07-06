@@ -67,7 +67,7 @@ public class WordGuessingGame
      * @param guessChar char the letter to verify if it is in the word being guessed
      */
     private void guess(char guessChar){
-        if(guessedWord.indexOf(guessChar) == -1){
+        if(guessedWord.indexOf(guessChar) == -1 && Character.isLetter(guessChar)){
             char[] guessedWordChars = guessedWord.toCharArray();
             for(int i=0; i<hiddenWord.length(); i++){
                 if(guessChar == hiddenWord.charAt(i)){
