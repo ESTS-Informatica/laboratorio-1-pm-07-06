@@ -50,7 +50,7 @@ public class WordGuessingGame
         do{
             showGuessedWord();
             char guessChar = reader.getChar("Digite uma letra: ");
-            guess(guessChar);
+            guess(Character.toLowerCase(guessChar));
         }while(!guessedWord.equals(hiddenWord));
         showGuessedWord();
         showResult();
@@ -59,6 +59,7 @@ public class WordGuessingGame
      * Shows the welcome message in the console
      */
     private void showWelcome(){
+        System.out.println();
         System.out.println("Bem vindo ao Jogo da Forca!");
         System.out.println("Tenta adivinhar a palavra escondida.");
     }
@@ -96,5 +97,13 @@ public class WordGuessingGame
             emptyWord += "_";
         }
         return emptyWord;
+    }
+    /**
+     * Resets the attributes for a new game
+     */
+    public void reset(){
+        numberOfTries = 0;
+        hiddenWord = wordGenerator.generateWord();
+        guessedWord = initializeGuessedWord(hiddenWord);
     }
 }
